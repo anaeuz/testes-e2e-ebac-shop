@@ -1,0 +1,22 @@
+pipeline {
+    agent any 
+    
+    tools {nodejs "recent node"}
+    stages {
+        stage('Clonar') { 
+            steps {
+                git branch: 'master', url: 'https://github.com/anaeuz/testes-e2e-ebac-shop.git' 
+            }
+        }
+        stage('Instalar') { 
+            steps {
+                sh 'npm install' 
+            }
+        }
+        stage('Executar') { 
+            steps {
+                sh 'npx cypress run' 
+            }
+        }
+    }
+}
