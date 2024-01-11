@@ -18,6 +18,7 @@ it('Deve adicionar 4 produtos ao carrinho e ir para o checkout', () => {
     cy.get('input[id="payment_method_cod"]').click()
     cy.get('#terms').click({ multiple: true });;
     cy.get('input[name="woocommerce_checkout_place_order"').click();
+    cy.get('.page-title').contains("Pedido recebido");
    
           
     });
